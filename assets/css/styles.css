@@ -1,0 +1,39 @@
+* {
+  margin: 0;
+  padding: 0;
+
+  box-sizing: border-box;
+}
+
+#form {
+  display: flex;
+  flex-direction: row;
+}
+
+#input-form {
+  width: 200px;
+  height: 20px;
+  transition: all 200ms ease-in-out;
+}
+
+
+#input-form[data-visible='false'] {
+  border: 0;
+  width: 0;
+  /* opacity: 0; */
+}
+
+#select-form {
+  height: 20px;
+  width: 100px;
+  transition: all 500ms ease-in-out;
+}
+
+#select-form[data-visible='false'] {
+  width: 0;
+  border: 0;
+}
+
+button[type='submit'] {
+  height: 20px;
+}

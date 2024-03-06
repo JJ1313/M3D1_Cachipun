@@ -4,10 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cachipun</title>
-
-  <script src="./assets/js/main.js" defer></script>
+  <link rel="stylesheet" href="./assets/css/styles.css">
 </head>
 <body>
-  
+  <h1>Cachipun</h1>
+  <form id="form">
+      <input id="input-form" data-visible="true" name="input-form" type="text" placeholder="Ingresa en numero de partidas">
+      <select name="" id="select-form" data-visible="false">
+        <option value="piedra">Piedra</option>
+        <option value="papel">Papel</option>
+        <option value="tijera">Tijera</option>
+      </select>
+    <button type="submit">OK</button>
+  </form>
+
+  <script src="./assets/js/main.js"></script>
 </body>
 </html>
