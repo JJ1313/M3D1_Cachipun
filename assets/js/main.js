@@ -1,11 +1,4 @@
-
-// const numeroJugadas = prompt("Ingrese el numedor de encuentros");
-// const numeroJugadas = 3;
-
-
-
 const posiblesJugadas = ['piedra', 'papel', 'tijera'];
-
 
 let playerWins = 0;
 let botWins = 0;
@@ -13,90 +6,72 @@ let botWins = 0;
 let botOption = 0;
 let playerOption = 0;
 
-const form = document.getElementById('form');
-let plays;
-let i = 0;
-form.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const search = document.getElementById('input-form').value;
+const numeroJugadas = prompt("Ingrese el numedor de encuentros");
 
-  if(!plays){
-    plays = parseInt(search);
-    document.querySelector('#input-form').value = '';
-    document.querySelector('#input-form').placeholder = '';
-    document.querySelector('#input-form').setAttribute('data-visible', 'false');
-    document.querySelector('#select-form').setAttribute('data-visible', 'true');
+document.write('<table><tr><th>Player</th><th>Bot</th><th>Resultado</th></tr>');
 
-    return
-  }
-  if(i < plays){
-    
-    i++;
-  }
-  else{
+for(let i = 0; i< numeroJugadas; i++){
 
+  playerOption = prompt('Ingresa tu jugada: piedra / papel / tijera').toLowerCase();
+  botOption = posiblesJugadas[Math.floor(Math.random() * posiblesJugadas.length)];
+
+  document.write(`<tr><td>${playerOption}</td><td>${botOption}</td><td>`);
+  if (playerOption === botOption){
+    document.write('Empate')
   }
 
-});
+  else if(playerOption === 'piedra'){
+    if(botOption === 'tijera'){
+      document.write('Ganaste');
+      playerWins++;
+    }   
+    else{
+      document.write('Perdiste');
+      botWins++;
+    }
+  }
 
-// for(let i = 0; i< numeroJugadas; i++){
+  else if(playerOption === 'papel'){
+    if(botOption === 'piedra'){
+      document.write('Ganaste');
+      playerWins++;
+    }
+    else{
+      document.write('Perdiste');
+      botWins++
+    }
+  }
 
-//   playerOption = prompt('Ingresa tu jugada: piedra / papel / tijera').toLowerCase();
-//   botOption = posiblesJugadas[Math.floor(Math.random() * posiblesJugadas.length)];
+  else if(playerOption === 'tijera'){
+    if(botOption === 'papel'){
+      document.write('Ganaste');
+      playerWins++;
+    }
+    else{
+      document.write('Perdiste');
+      botWins++;
+    }
+  }
+  document.write('</td></tr>');
+}
+document.write('</table>');
 
-//   console.log(playerOption + ',' + botOption);
 
-//   if (playerOption === botOption){
-//     console.log('Empate');
-//   }
+document.write('<h3>RESULTADO</h3>');
+let mensaje = '';
+if(playerWins > botWins){
+  mensaje = 'Felicidades le ganaste a un bot.'
+}
+else if(botWins > playerWins){
+  mensaje = 'Perdiste contra un bot.'
+}
+else{
+  mensaje = 'Empataste...Eres un bot.'
+}
+document.write(`
+<p>
+${mensaje}...</p>
 
-//   else if(playerOption === 'piedra'){
-//     if(botOption === 'tijera'){
-//       console.log('Ganaste');
-//       playerWins ++;
-//     }   
-//     else{
-//       console.log('Perdiste');
-//       botWins++;
-//     }
-//   }
-
-//   else if(playerOption === 'papel'){
-//     if(botOption === 'piedra'){
-//       console.log('Ganaste');
-//       playerWins++;
-//     }
-//     else{
-//       console.log('Perdiste');
-//       botWins++
-//     }
-//   }
-
-//   else if(playerOption === 'tijera'){
-//     if(botOption === 'papel'){
-//       console.log('Ganaste');
-//       playerWins++;
-//     }
-//     else{
-//       console.log('Perdiste');
-//       botWins++;
-//     }
-//   }
-// }
-// let mensaje = '';
-// if(playerWins > botWins){
-//   mensaje = 'Felicidades le ganaste a un bot'
-// }
-// else if(botWins > playerWins){
-//   mensaje = 'Perdiste contra un bot'
-// }
-// else{
-//   mensaje = 'Eres un bot... Empataste'
-// }
-// document.write(`
-// <div>
-// ${mensaje}...</div>
-
-// <div>Tu: ${playerWins} ganadas</div>
-// <div>Bot: ${botWins} ganadas</div>
-// `);
+<div>Ganaste: ${playerWins}</div>
+<div>Perdiste: ${botWins}</div>
+`);

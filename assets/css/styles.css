@@ -5,35 +5,31 @@
   box-sizing: border-box;
 }
 
-#form {
-  display: flex;
-  flex-direction: row;
+body {
+  background: #333;
+  color: whitesmoke;
+  font-family: 'Lucida Sans', sans-serif;
+  text-align: center;
 }
 
-#input-form {
-  width: 200px;
-  height: 20px;
-  transition: all 200ms ease-in-out;
+table {
+  margin-inline: auto;
 }
 
-
-#input-form[data-visible='false'] {
-  border: 0;
-  width: 0;
-  /* opacity: 0; */
+table,
+th {
+  border: 1px solid whitesmoke;
 }
 
-#select-form {
-  height: 20px;
-  width: 100px;
-  transition: all 500ms ease-in-out;
+th {
+  background-color: whitesmoke;
+  color: #333;
 }
 
-#select-form[data-visible='false'] {
-  width: 0;
-  border: 0;
+td {
+  min-width: 150px;
 }
 
-button[type='submit'] {
-  height: 20px;
+h3 {
+  margin-block: 1rem;
 }
